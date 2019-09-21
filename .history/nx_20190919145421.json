@@ -1,0 +1,33 @@
+{
+    "npmScope": "capicuarepo",
+    "implicitDependencies": {
+        "angular.json": "*",
+        "package.json": "*",
+        "tsconfig.json": "*",
+        "tslint.json": "*",
+        "nx.json": "*"
+    },
+    "projects": {
+        "igui-e2e": {
+            "tags": []
+        },
+        "igui": {
+            "tags": []
+        },
+        "car-e2e": {
+            "tags": []
+        },
+        "car": {
+            "tags": []
+        },
+        "material": {
+            "tags": []
+        },
+        "shared": {
+            "tags": []
+        },
+        "shared-toolbar": {
+            "tags": []
+        }
+    }
+}

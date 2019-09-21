@@ -15,7 +15,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@capicuarepo/material": ["libs/material/src/index.ts"],
+      "@capicuarepo/shared": ["libs/shared/src/index.ts"],
+      "@capicuarepo/shared/toolbar": ["libs/shared/toolbar/src/index.ts"],
+      "@capicuarepo/logo": ["libs/logo/src/index.ts"],
+      "@capicuarepo/toolbar": ["libs/toolbar/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

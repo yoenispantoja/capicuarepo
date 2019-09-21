@@ -1,0 +1,11 @@
+import { PruebaComponent } from '@capicuarepo/material';
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'capicuarepo-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'igui';
+}

@@ -1,0 +1,27 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "esnext",
+        "typeRoots": ["node_modules/@types"],
+        "lib": ["es2017", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@capicuarepo/material": ["libs/material/src/index.ts"],
+            "@capicuarepo/shared": ["libs/shared/src/index.ts"],
+            "@capicuarepo/shared/toolbar": [
+                "libs/shared/toolbar/src/index.ts"
+            ]
+        }
+    },
+    "exclude": ["node_modules", "tmp"]
+}

@@ -1,0 +1,26 @@
+<h4 mat-dialog-title>
+    <mat-icon>add_circle</mat-icon> Add photo
+</h4>
+<hr />
+<mat-dialog-content class="mat-typography">
+    <div fxLayout="row" fxLayoutAlign="space-around">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+            <div>
+                <div fxFlex="60%"></div>
+                <div fxFlex fxLayoutGap="10px" fxLayoutAlign="end">
+                    <div fxFlex>
+                        <button mat-raised-button [color]="'primary'" type="submit" [disabled]="!form.valid">
+              <mat-icon class="mat-18">save</mat-icon> Save
+            </button>
+                    </div>
+                    <div fxFlex>
+                        <button mat-raised-button [color]="'warn'" (click)="d('Cross click')">
+              <mat-icon class="mat-18">cancel</mat-icon> Cancel
+            </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</mat-dialog-content>

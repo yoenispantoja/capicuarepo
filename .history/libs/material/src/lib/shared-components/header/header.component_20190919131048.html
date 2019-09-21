@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+        <h1>Trainning Angular</h1>
+        <span class="menu-spacer"></span>
+        <div>
+            <a mat-button [routerLink]="'/car'"><i class="material-icons">directions_car</i> Cars Module </a>
+            <a mat-button [routerLink]="'/user'"><i class="material-icons">person</i> Users Module</a>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -13,6 +13,27 @@
     },
     "igui": {
       "tags": []
+    },
+    "car-e2e": {
+      "tags": []
+    },
+    "car": {
+      "tags": []
+    },
+    "material": {
+      "tags": []
+    },
+    "shared": {
+      "tags": []
+    },
+    "shared-toolbar": {
+      "tags": []
+    },
+    "logo": {
+      "tags": []
+    },
+    "toolbar": {
+      "tags": []
     }
   }
 }

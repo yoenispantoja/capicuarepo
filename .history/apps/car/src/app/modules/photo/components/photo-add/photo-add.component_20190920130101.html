@@ -1,0 +1,15 @@
+<h4 mat-dialog-title>
+    <mat-icon>add_circle</mat-icon> Add photo
+</h4>
+<hr>
+<mat-dialog-content class="mat-typography">
+    <div fxLayout="row" fxLayoutGap="30px">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+            <button mat-icon-button (click)="onClick">
+        <mat-icon class="mat-18">ligature</mat-icon>
+      </button>
+            <button type="submit" class="btn btn-primary submit-button" [disabled]="!form.valid">Save></button>
+        </form>
+    </div>
+</mat-dialog-content>
