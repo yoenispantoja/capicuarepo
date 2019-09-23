@@ -1,0 +1,19 @@
+<h4 mat-dialog-title class="greenIcon">
+    <mat-icon>sports_soccer</mat-icon> Sport details
+</h4>
+<hr>
+<mat-dialog-content class="mat-typography">
+    <div fxLayout="row" fxLayoutGap="30px">
+        <div fxFlex>
+            <h3><strong>Sport Name: </strong> {{ data.nombre }}</h3>
+            <h3><strong>Sport Category: </strong> {{ data.modalidad }}</h3>
+            <h3><strong>Sport Active: </strong> {{ data.active?'YES':'NO' }}</h3>
+            <h3><strong>Sport Date of created: </strong> {{ data.created_at | date }}</h3>
+            <h3><strong>Sport Date of updated: </strong> {{ data.updated_at | date }}</h3>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>

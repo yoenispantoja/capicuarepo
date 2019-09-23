@@ -1,0 +1,65 @@
+<div fxLayout="row" fxLayoutGap="30px">
+  <div fxFlex="90%">
+    <h1>Sports list</h1>
+    <button mat-raised-button [color]="'success'" (click)="this.addSport()">
+      <mat-icon>add_circle</mat-icon> Add
+    </button>
+    <br>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <table mat-table [dataSource]="this.dataSource" matSort class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Id. </strong> </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Nombre</strong> </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="modalidad">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Modalidad</strong> </th>
+        <td mat-cell *matCellDef="let element"> {{element.modalidad}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="activo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Activo</strong> </th>
+        <td mat-cell *matCellDef="let element"> {{element.activo?'ACTIVO':'INACTIVO'}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="created_at">
+        <th style="text-align: center" mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Fecha creado</strong> </th>
+        <td style="text-align: center" mat-cell *matCellDef="let element">{{element.created_at | date}}
+        </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="updated_at">
+        <th style="text-align: center" mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Fecha actualizado</strong> </th>
+        <td style="text-align: center" mat-cell *matCellDef="let element">{{element.updated_at | date}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell style="text-align: center; padding-left: 20px" *matCellDef="let element"> <button mat-raised-button
+            [color]="'primary'" (click)="this.seeMore(element)">See more</button> </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
+  </div>

@@ -1,0 +1,79 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.flex-3 {
+    flex: 3;
+}
+
+.flex-4 {
+    flex: 4;
+}
+
+.flex-5 {
+    flex: 5;
+}
+
+.flex-6 {
+    flex: 6;
+}
+
+[class*="flex-"] {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+[class*="flex-"]:first-child {
+    padding-left: 0;
+}
+
+[class*="flex-"]:nth-last-child(2) {
+    padding-right: 0;
+}
+
+.material-icons.button {
+    cursor: pointer;
+}
+
+.material-icons.button:hover {
+    cursor: pointer;
+    border: 1px solid black;
+    //transform: translateY(2px);
+}
+
+.material-icons.orangeIcon {
+    color: goldenrod;
+}
+
+.material-icons.redIcon {
+    color: lightcoral;
+}
+
+.material-icons.blueIcon {
+    color: cornflowerblue;
+}
+
+.material-icons.greenIcon {
+    color: seagreen;
+}
