@@ -32,7 +32,7 @@ export class PhotoListComponent implements OnInit {
 
   constructor(
     private photoService: PhotoService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit() {
