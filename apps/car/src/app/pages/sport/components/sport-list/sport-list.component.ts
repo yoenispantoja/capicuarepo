@@ -34,7 +34,7 @@ export class SportListComponent implements OnInit {
 
   //All for Table
   // Working with Material-Tables
-  displayedColumns: string[] = ['id', 'nombre', 'modalidad', 'activo', 'created_at', 'updated_at', 'actions'];
+  displayedColumns: string[] = ['id', 'nombre', 'codigo', 'modalidad', 'activo', 'created_at', 'updated_at', 'actions'];
 
   //For paginator
   dataSource = new MatTableDataSource<Sport>();

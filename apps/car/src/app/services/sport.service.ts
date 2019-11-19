@@ -5,9 +5,9 @@ import { Sport } from '../models/sport';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'text/plain',
+    'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
-    'Authorization': 'Token here'
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
   })
 };
 
@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class SportService {
 
-  baseUrl = 'http://localhost/jd/public/deportes';
+  baseUrl = 'http://localhost:8000/api/sports';
 
   constructor(private http: HttpClient) { }
 

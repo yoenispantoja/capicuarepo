@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from '../../../../../capicuarepo/apps/car/src/app/app-routing.module'
+import { AppRoutingModule } from '../../../../apps/car/src/app/app.routing'
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';

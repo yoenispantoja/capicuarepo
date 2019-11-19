@@ -1,7 +1,7 @@
 // Section 1
 import { State, Action, StateContext, Selector, Actions } from '@ngxs/store';
 import { Sport } from './../models/sport'
-import { GetSports, AddSport, DeleteSport, UpdateSport } from './../modules/sport/sport-actions'
+import { GetSports, AddSport, DeleteSport, UpdateSport } from './../pages/sport/sport-actions'
 import { SportService } from '../services/sport.service';
 import { tap } from 'rxjs/operators';
 

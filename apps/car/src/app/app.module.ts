@@ -1,17 +1,19 @@
+import { LoginModule } from './login/login.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarModule } from '@capicuarepo/toolbar';
 
+
 //Trabajando con NGSXS
 import { NgxsModule } from '@ngxs/store';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+
 import { SportState } from './states/sport-state';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -28,8 +30,8 @@ import { SportState } from './states/sport-state';
       //Aquí declaro los stados globales que tendrá mi app
       SportState
     ]),
-    NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsLoggerPluginModule.forRoot()
+    PagesModule,
+    LoginModule
 
   ],
   providers: [],

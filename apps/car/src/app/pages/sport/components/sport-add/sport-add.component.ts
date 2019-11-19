@@ -45,7 +45,24 @@ export class SportAddComponent implements OnInit {
           },
         },
         {
-          className: 'flex-1',
+          className: 'flex-2',
+          type: 'input',
+          key: 'codigo',
+          templateOptions: {
+            label: 'Código',
+            type: 'number',
+            minLength: 6,
+            required: true,
+
+          },
+        }
+      ],
+    },
+    {
+      fieldGroupClassName: 'display-flex',
+      fieldGroup: [
+        {
+          className: 'flex-2',
           type: 'input',
           key: 'modalidad',
           templateOptions: {
@@ -54,11 +71,6 @@ export class SportAddComponent implements OnInit {
             required: true
           }
         },
-      ],
-    },
-    {
-      fieldGroupClassName: 'display-flex',
-      fieldGroup: [
         {
           className: 'flex-2',
           type: 'select',
