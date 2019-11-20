@@ -1,3 +1,22 @@
-<p>
-  login works!
-</p>
+<div class="container">
+  <div class="logo">
+    <img class="imgLogo" src="assets/images/logo.png" alt="" />
+    <h3>Entrada al sistema</h3>
+  </div>
+  <div class="botones">
+    <facebook-login-button
+      (socialUser)="getSocialUser($event)"
+      [text]="'Iniciar sesión con Facebook'"
+    ></facebook-login-button>
+
+    <google-login-button
+      (socialUser)="getSocialUser($event)"
+      [text]="'Iniciar sesión con Google'"
+    ></google-login-button>
+
+    <linkedin-login-button
+      (socialUser)="getSocialUser($event)"
+      [text]="'Iniciar sesión con Linkedin'"
+    ></linkedin-login-button>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+.toolbarContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuToolbar {
+  display: flex;
+}
+
+.menuUser {
+  display: table;
+}
+
+.menuUser span {
+  font-size: 14px;
+
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.menuUser .avatar {
+  display: table-cell;
+  vertical-align: middle;
+  border-radius: 50% !important;
+  width: 40px !important;
+  cursor: pointer;
+  margin-left: 20px;
+}

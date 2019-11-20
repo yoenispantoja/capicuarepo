@@ -1,8 +1,14 @@
 a {
-    margin: 10px;
+  margin: 10px;
 }
 
 .tp-button-row button,
 .tp-button-row a {
-    margin-right: 8px;
+  margin-right: 8px;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
 }

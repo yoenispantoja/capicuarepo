@@ -1,12 +1,17 @@
+import { FooterComponent } from './footer/footer.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NotPageFoundComponent } from './not-page-found/not-page-found.component';
-
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { MaterialModule } from '@capicuarepo/material';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule,
+    RouterModule
   ],
-  declarations: [NotPageFoundComponent]
+  declarations: [ToolbarComponent, FooterComponent],
+  exports: [ToolbarComponent, FooterComponent]
 })
 export class SharedModule { }
