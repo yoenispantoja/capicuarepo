@@ -1,3 +1,4 @@
+import { DirectivesModule } from './../../directives/directives.module';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { PhotoService } from './../../services/photo.service';
 import { DataService } from './../../services/data.service';
@@ -21,6 +22,7 @@ import { FormlyModule } from '@ngx-formly/core';
     ReactiveFormsModule,
     FormlyModule.forRoot(),
     FormlyMaterialModule,
+    DirectivesModule
 
   ],
   declarations: [PhotoListComponent, PhotoDetailsComponent, PhotoAddComponent],

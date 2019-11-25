@@ -15,6 +15,8 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./photo-list.component.css']
 })
 export class PhotoListComponent implements OnInit {
+
+
   photos: Photo[];
   subscriptionGetPhoto: Subscription; // para desuscribirse luego de enganchar el servicio
 

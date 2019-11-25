@@ -15,7 +15,7 @@ import { MaterialModule } from '@capicuarepo/material';
     PageRoutingModule,
     SharedModule,
     MaterialModule,
-    LogoModule
+    LogoModule,
   ],
   declarations: [PagesComponent, Page404Component],
 })

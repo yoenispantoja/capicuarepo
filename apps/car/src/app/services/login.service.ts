@@ -10,8 +10,10 @@ export class LoginService {
   constructor(private socialAuthService: SocialService, private route: Router) { }
 
   login(socialUser: any) {
-    localStorage.setItem('socialUser', JSON.stringify(socialUser));
-    this.route.navigateByUrl('/sports');
+    if (socialUser) {
+      localStorage.setItem('socialUser', JSON.stringify(socialUser));
+      this.route.navigateByUrl('/sports');
+    }
   }
 
   logout() {

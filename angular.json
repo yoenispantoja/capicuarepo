@@ -16,9 +16,21 @@
                         "main": "apps/igui/src/main.ts",
                         "polyfills": "apps/igui/src/polyfills.ts",
                         "tsConfig": "apps/igui/tsconfig.app.json",
-                        "aot": false,
-                        "assets": ["apps/igui/src/favicon.ico", "apps/igui/src/assets"],
-                        "styles": ["apps/igui/src/styles.css"],
+                        "assets": [
+                            {
+                                "input": "./shared/assets",
+                                "glob": "**/*",
+                                "output": "./assets"
+                            }
+                        ],
+                        "styles": [
+                            "shared/styles/styles.scss",
+                            "./node_modules/material-design-icons/iconfont/material-icons.css",
+                            "./node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
+                        ],
+                        "stylePreprocessorOptions": {
+                            "includePaths": ["./shared/styles"]
+                        },
                         "scripts": []
                     },
                     "configurations": {
@@ -130,8 +142,21 @@
                         "polyfills": "apps/car/src/polyfills.ts",
                         "tsConfig": "apps/car/tsconfig.app.json",
                         "aot": false,
-                        "assets": ["apps/car/src/favicon.ico", "apps/car/src/assets"],
-                        "styles": ["apps/car/src/styles.css"],
+                        "assets": [
+                            {
+                                "input": "./shared/assets",
+                                "glob": "**/*",
+                                "output": "./assets"
+                            }
+                        ],
+                        "styles": [
+                            "shared/styles/styles.scss",
+                            "./node_modules/material-design-icons/iconfont/material-icons.css",
+                            "./node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
+                        ],
+                        "stylePreprocessorOptions": {
+                            "includePaths": ["./shared/styles"]
+                        },
                         "scripts": []
                     },
                     "configurations": {

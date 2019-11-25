@@ -12,10 +12,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxsModule } from '@ngxs/store';
 import { SportState } from './states/sport-state';
 
+
 import {
   NgxSocialButtonModule,
   SocialServiceConfig
 } from "ngx-social-button";
+
 
 // Configs
 export function getAuthServiceConfigs() {
@@ -30,7 +32,7 @@ export function getAuthServiceConfigs() {
   declarations: [
     AppComponent,
     LoginComponent,
-    NotPageFoundComponent,
+    NotPageFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,7 @@ export function getAuthServiceConfigs() {
       //Aquí declaro los stados globales que tendrá mi app
       SportState
     ]),
-    NgxSocialButtonModule
+    NgxSocialButtonModule,
   ],
   providers: [{
     provide: SocialServiceConfig,
