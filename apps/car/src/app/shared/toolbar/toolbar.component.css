@@ -1,28 +1,39 @@
 .toolbarContainer {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: [logoToolBar]20% [menuToolBar]auto [userToolBar]15%;
+  grid-template-rows: auto;
+}
+
+.logoToolBar {
+  grid-column-start: 1;
 }
 
 .menuToolbar {
+  grid-column-start: 2;
+}
+
+.userToolBar {
+  grid-column-start: 3;
   display: flex;
 }
 
-.menuUser {
-  display: table;
-}
-
-.menuUser span {
+.userToolBar span {
   font-size: 14px;
-
   display: table-cell;
   vertical-align: middle;
 }
 
-.menuUser .avatar {
+.userToolBar .avatar {
   display: table-cell;
   vertical-align: middle;
   border-radius: 50% !important;
   width: 40px !important;
   cursor: pointer;
   margin-left: 20px;
+}
+
+mat-sidenav-content {
+  padding-left: 5%;
+  padding-right: 5%;
+
 }

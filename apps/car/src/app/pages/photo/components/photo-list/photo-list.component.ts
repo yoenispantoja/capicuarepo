@@ -81,4 +81,8 @@ export class PhotoListComponent implements OnInit {
     this.photos = [];
     this.subscriptionGetPhoto.unsubscribe();
   }
+
+  seeMore(row: any) {
+    console.table(row);
+  }
 }

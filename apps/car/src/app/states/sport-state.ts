@@ -65,8 +65,7 @@ export class SportState {
           ...state, sports: datos
         });
       });
-    }),
-      console.error('error');
+    })
 
   }
 

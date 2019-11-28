@@ -110,13 +110,10 @@ export class SportEditComponent implements OnInit {
 
     //Cargando el snack para el mensajito
     this.snackBar.open('Sport updated', '', {
-      duration: 1000
-    }).afterDismissed().subscribe(() => {
-      this.dialogRef.close();
-      this.router.navigate(['/sport']);
-    }
-    );
+      duration: 3000
+    })
 
+    this.dialogRef.close();
 
 
   }

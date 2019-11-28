@@ -1,404 +1,448 @@
 {
-    "version": 1,
-    "projects": {
-        "igui": {
-            "projectType": "application",
-            "schematics": {},
-            "root": "apps/igui",
-            "sourceRoot": "apps/igui/src",
-            "prefix": "capicuarepo",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
-                    "options": {
-                        "outputPath": "dist/apps/igui",
-                        "index": "apps/igui/src/index.html",
-                        "main": "apps/igui/src/main.ts",
-                        "polyfills": "apps/igui/src/polyfills.ts",
-                        "tsConfig": "apps/igui/tsconfig.app.json",
-                        "assets": [
-                            {
-                                "input": "./shared/assets",
-                                "glob": "**/*",
-                                "output": "./assets"
-                            }
-                        ],
-                        "styles": [
-                            "shared/styles/styles.scss",
-                            "./node_modules/material-design-icons/iconfont/material-icons.css",
-                            "./node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
-                        ],
-                        "stylePreprocessorOptions": {
-                            "includePaths": ["./shared/styles"]
-                        },
-                        "scripts": []
-                    },
-                    "configurations": {
-                        "production": {
-                            "fileReplacements": [{
-                                "replace": "apps/igui/src/environments/environment.ts",
-                                "with": "apps/igui/src/environments/environment.prod.ts"
-                            }],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "aot": true,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true,
-                            "budgets": [{
-                                    "type": "initial",
-                                    "maximumWarning": "2mb",
-                                    "maximumError": "5mb"
-                                },
-                                {
-                                    "type": "anyComponentStyle",
-                                    "maximumWarning": "6kb",
-                                    "maximumError": "10kb"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
-                    "options": {
-                        "browserTarget": "igui:build"
-                    },
-                    "configurations": {
-                        "production": {
-                            "browserTarget": "igui:build:production"
-                        }
-                    }
-                },
-                "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                        "browserTarget": "igui:build"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "apps/igui/tsconfig.app.json",
-                            "apps/igui/tsconfig.spec.json"
-                        ],
-                        "exclude": ["**/node_modules/**", "!apps/igui/**"]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "options": {
-                        "jestConfig": "apps/igui/jest.config.js",
-                        "tsConfig": "apps/igui/tsconfig.spec.json",
-                        "setupFile": "apps/igui/src/test-setup.ts"
-                    }
+  "version": 1,
+  "projects": {
+    "igui": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/igui",
+      "sourceRoot": "apps/igui/src",
+      "prefix": "capicuarepo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/igui",
+            "index": "apps/igui/src/index.html",
+            "main": "apps/igui/src/main.ts",
+            "polyfills": "apps/igui/src/polyfills.ts",
+            "tsConfig": "apps/igui/tsconfig.app.json",
+            "assets": [
+              {
+                "input": "./shared/assets",
+                "glob": "**/*",
+                "output": "./assets"
+              }
+            ],
+            "styles": [
+              "shared/styles/styles.scss",
+              "./node_modules/material-design-icons/iconfont/material-icons.css",
+              "./node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./shared/styles"
+              ]
+            },
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/igui/src/environments/environment.ts",
+                  "with": "apps/igui/src/environments/environment.prod.ts"
                 }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
             }
+          }
         },
-        "igui-e2e": {
-            "root": "apps/igui-e2e",
-            "sourceRoot": "apps/igui-e2e/src",
-            "projectType": "application",
-            "architect": {
-                "e2e": {
-                    "builder": "@nrwl/cypress:cypress",
-                    "options": {
-                        "cypressConfig": "apps/igui-e2e/cypress.json",
-                        "tsConfig": "apps/igui-e2e/tsconfig.e2e.json",
-                        "devServerTarget": "igui:serve"
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "igui:serve:production"
-                        }
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": ["apps/igui-e2e/tsconfig.e2e.json"],
-                        "exclude": ["**/node_modules/**", "!apps/igui-e2e/**"]
-                    }
-                }
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "igui:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "igui:build:production"
             }
+          }
         },
-        "car": {
-            "projectType": "application",
-            "schematics": {},
-            "root": "apps/car",
-            "sourceRoot": "apps/car/src",
-            "prefix": "capicuarepo",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
-                    "options": {
-                        "outputPath": "dist/apps/car",
-                        "index": "apps/car/src/index.html",
-                        "main": "apps/car/src/main.ts",
-                        "polyfills": "apps/car/src/polyfills.ts",
-                        "tsConfig": "apps/car/tsconfig.app.json",
-                        "aot": false,
-                        "assets": [
-                            {
-                                "input": "./shared/assets",
-                                "glob": "**/*",
-                                "output": "./assets"
-                            }
-                        ],
-                        "styles": [
-                            "shared/styles/styles.scss",
-                            "./node_modules/material-design-icons/iconfont/material-icons.css",
-                            "./node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
-                        ],
-                        "stylePreprocessorOptions": {
-                            "includePaths": ["./shared/styles"]
-                        },
-                        "scripts": []
-                    },
-                    "configurations": {
-                        "production": {
-                            "fileReplacements": [{
-                                "replace": "apps/car/src/environments/environment.ts",
-                                "with": "apps/car/src/environments/environment.prod.ts"
-                            }],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "aot": true,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true,
-                            "budgets": [{
-                                    "type": "initial",
-                                    "maximumWarning": "2mb",
-                                    "maximumError": "5mb"
-                                },
-                                {
-                                    "type": "anyComponentStyle",
-                                    "maximumWarning": "6kb",
-                                    "maximumError": "10kb"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
-                    "options": {
-                        "browserTarget": "car:build"
-                    },
-                    "configurations": {
-                        "production": {
-                            "browserTarget": "car:build:production"
-                        }
-                    }
-                },
-                "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                        "browserTarget": "car:build"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "apps/car/tsconfig.app.json",
-                            "apps/car/tsconfig.spec.json"
-                        ],
-                        "exclude": ["**/node_modules/**", "!apps/car/**"]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "options": {
-                        "jestConfig": "apps/car/jest.config.js",
-                        "tsConfig": "apps/car/tsconfig.spec.json",
-                        "setupFile": "apps/car/src/test-setup.ts"
-                    }
-                }
-            }
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "igui:build"
+          }
         },
-        "car-e2e": {
-            "root": "apps/car-e2e",
-            "sourceRoot": "apps/car-e2e/src",
-            "projectType": "application",
-            "architect": {
-                "e2e": {
-                    "builder": "@nrwl/cypress:cypress",
-                    "options": {
-                        "cypressConfig": "apps/car-e2e/cypress.json",
-                        "tsConfig": "apps/car-e2e/tsconfig.e2e.json",
-                        "devServerTarget": "car:serve"
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "car:serve:production"
-                        }
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": ["apps/car-e2e/tsconfig.e2e.json"],
-                        "exclude": ["**/node_modules/**", "!apps/car-e2e/**"]
-                    }
-                }
-            }
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/igui/tsconfig.app.json",
+              "apps/igui/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/igui/**"
+            ]
+          }
         },
-        "material": {
-            "projectType": "library",
-            "root": "libs/material",
-            "sourceRoot": "libs/material/src",
-            "prefix": "capicuarepo",
-            "architect": {
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "libs/material/tsconfig.lib.json",
-                            "libs/material/tsconfig.spec.json"
-                        ],
-                        "exclude": ["**/node_modules/**", "!libs/material/**"]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "options": {
-                        "jestConfig": "libs/material/jest.config.js",
-                        "tsConfig": "libs/material/tsconfig.spec.json",
-                        "setupFile": "libs/material/src/test-setup.ts"
-                    }
-                }
-            },
-            "schematics": {}
-        },
-        "shared": {
-            "projectType": "library",
-            "root": "libs/shared",
-            "sourceRoot": "libs/shared/src",
-            "prefix": "capicuarepo",
-            "architect": {
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "libs/shared/tsconfig.lib.json",
-                            "libs/shared/tsconfig.spec.json"
-                        ],
-                        "exclude": ["**/node_modules/**", "!libs/shared/**"]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "options": {
-                        "jestConfig": "libs/shared/jest.config.js",
-                        "tsConfig": "libs/shared/tsconfig.spec.json",
-                        "setupFile": "libs/shared/src/test-setup.ts"
-                    }
-                }
-            },
-            "schematics": {}
-        },
-        "shared-toolbar": {
-            "projectType": "library",
-            "root": "libs/shared/toolbar",
-            "sourceRoot": "libs/shared/toolbar/src",
-            "prefix": "capicuarepo",
-            "architect": {
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "libs/shared/toolbar/tsconfig.lib.json",
-                            "libs/shared/toolbar/tsconfig.spec.json"
-                        ],
-                        "exclude": ["**/node_modules/**", "!libs/shared/toolbar/**"]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "options": {
-                        "jestConfig": "libs/shared/toolbar/jest.config.js",
-                        "tsConfig": "libs/shared/toolbar/tsconfig.spec.json",
-                        "setupFile": "libs/shared/toolbar/src/test-setup.ts"
-                    }
-                }
-            },
-            "schematics": {}
-        },
-        "logo": {
-            "projectType": "library",
-            "root": "libs/logo",
-            "sourceRoot": "libs/logo/src",
-            "prefix": "capicuarepo",
-            "architect": {
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "libs/logo/tsconfig.lib.json",
-                            "libs/logo/tsconfig.spec.json"
-                        ],
-                        "exclude": ["**/node_modules/**", "!libs/logo/**"]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "options": {
-                        "jestConfig": "libs/logo/jest.config.js",
-                        "tsConfig": "libs/logo/tsconfig.spec.json",
-                        "setupFile": "libs/logo/src/test-setup.ts"
-                    }
-                }
-            },
-            "schematics": {}
-        },
-        "toolbar": {
-            "projectType": "library",
-            "root": "libs/toolbar",
-            "sourceRoot": "libs/toolbar/src",
-            "prefix": "capicuarepo",
-            "architect": {
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "libs/toolbar/tsconfig.lib.json",
-                            "libs/toolbar/tsconfig.spec.json"
-                        ],
-                        "exclude": ["**/node_modules/**", "!libs/toolbar/**"]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "options": {
-                        "jestConfig": "libs/toolbar/jest.config.js",
-                        "tsConfig": "libs/toolbar/tsconfig.spec.json",
-                        "setupFile": "libs/toolbar/src/test-setup.ts"
-                    }
-                }
-            },
-            "schematics": {}
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/igui/jest.config.js",
+            "tsConfig": "apps/igui/tsconfig.spec.json",
+            "setupFile": "apps/igui/src/test-setup.ts"
+          }
         }
+      }
     },
-    "cli": {
-        "defaultCollection": "@nrwl/angular"
-    },
-    "schematics": {
-        "@nrwl/angular:application": {
-            "unitTestRunner": "jest",
-            "e2eTestRunner": "cypress"
+    "igui-e2e": {
+      "root": "apps/igui-e2e",
+      "sourceRoot": "apps/igui-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/igui-e2e/cypress.json",
+            "tsConfig": "apps/igui-e2e/tsconfig.e2e.json",
+            "devServerTarget": "igui:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "igui:serve:production"
+            }
+          }
         },
-        "@nrwl/angular:library": {
-            "unitTestRunner": "jest"
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/igui-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/igui-e2e/**"
+            ]
+          }
         }
+      }
     },
-    "defaultProject": "igui"
+    "car": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/car",
+      "sourceRoot": "apps/car/src",
+      "prefix": "capicuarepo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/car",
+            "index": "apps/car/src/index.html",
+            "main": "apps/car/src/main.ts",
+            "polyfills": "apps/car/src/polyfills.ts",
+            "tsConfig": "apps/car/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              {
+                "input": "./shared/assets",
+                "glob": "**/*",
+                "output": "./assets"
+              }
+            ],
+            "styles": [
+              "shared/styles/styles.scss",
+              "./node_modules/material-design-icons/iconfont/material-icons.css",
+              "./node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./shared/styles"
+              ]
+            },
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/car/src/environments/environment.ts",
+                  "with": "apps/car/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "car:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "car:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "car:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/car/tsconfig.app.json",
+              "apps/car/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/car/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/car/jest.config.js",
+            "tsConfig": "apps/car/tsconfig.spec.json",
+            "setupFile": "apps/car/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "car-e2e": {
+      "root": "apps/car-e2e",
+      "sourceRoot": "apps/car-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/car-e2e/cypress.json",
+            "tsConfig": "apps/car-e2e/tsconfig.e2e.json",
+            "devServerTarget": "car:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "car:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/car-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/car-e2e/**"
+            ]
+          }
+        }
+      }
+    },
+    "material": {
+      "projectType": "library",
+      "root": "libs/material",
+      "sourceRoot": "libs/material/src",
+      "prefix": "capicuarepo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/material/tsconfig.lib.json",
+              "libs/material/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/material/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/material/jest.config.js",
+            "tsConfig": "libs/material/tsconfig.spec.json",
+            "setupFile": "libs/material/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "shared": {
+      "projectType": "library",
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "prefix": "capicuarepo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/tsconfig.lib.json",
+              "libs/shared/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/jest.config.js",
+            "tsConfig": "libs/shared/tsconfig.spec.json",
+            "setupFile": "libs/shared/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "shared-toolbar": {
+      "projectType": "library",
+      "root": "libs/shared/toolbar",
+      "sourceRoot": "libs/shared/toolbar/src",
+      "prefix": "capicuarepo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/toolbar/tsconfig.lib.json",
+              "libs/shared/toolbar/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/toolbar/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/toolbar/jest.config.js",
+            "tsConfig": "libs/shared/toolbar/tsconfig.spec.json",
+            "setupFile": "libs/shared/toolbar/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "logo": {
+      "projectType": "library",
+      "root": "libs/logo",
+      "sourceRoot": "libs/logo/src",
+      "prefix": "capicuarepo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/logo/tsconfig.lib.json",
+              "libs/logo/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/logo/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/logo/jest.config.js",
+            "tsConfig": "libs/logo/tsconfig.spec.json",
+            "setupFile": "libs/logo/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "toolbar": {
+      "projectType": "library",
+      "root": "libs/toolbar",
+      "sourceRoot": "libs/toolbar/src",
+      "prefix": "capicuarepo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/toolbar/tsconfig.lib.json",
+              "libs/toolbar/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/toolbar/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/toolbar/jest.config.js",
+            "tsConfig": "libs/toolbar/tsconfig.spec.json",
+            "setupFile": "libs/toolbar/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    },
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  },
+  "defaultProject": "igui"
 }
