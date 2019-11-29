@@ -29,9 +29,7 @@
               "./node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "./shared/styles"
-              ]
+              "includePaths": ["./shared/styles"]
             },
             "scripts": []
           },
@@ -91,10 +89,7 @@
               "apps/igui/tsconfig.app.json",
               "apps/igui/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/igui/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/igui/**"]
           }
         },
         "test": {
@@ -128,13 +123,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/igui-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/igui-e2e/**"
-            ]
+            "tsConfig": ["apps/igui-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/igui-e2e/**"]
           }
         }
       }
@@ -168,9 +158,7 @@
               "./node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "./shared/styles"
-              ]
+              "includePaths": ["./shared/styles"]
             },
             "scripts": []
           },
@@ -230,10 +218,7 @@
               "apps/car/tsconfig.app.json",
               "apps/car/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/car/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/car/**"]
           }
         },
         "test": {
@@ -267,13 +252,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/car-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/car-e2e/**"
-            ]
+            "tsConfig": ["apps/car-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/car-e2e/**"]
           }
         }
       }
@@ -291,10 +271,7 @@
               "libs/material/tsconfig.lib.json",
               "libs/material/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/material/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/material/**"]
           }
         },
         "test": {
@@ -321,10 +298,7 @@
               "libs/shared/tsconfig.lib.json",
               "libs/shared/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/shared/**"]
           }
         },
         "test": {
@@ -351,10 +325,7 @@
               "libs/shared/toolbar/tsconfig.lib.json",
               "libs/shared/toolbar/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/toolbar/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/shared/toolbar/**"]
           }
         },
         "test": {
@@ -381,10 +352,7 @@
               "libs/logo/tsconfig.lib.json",
               "libs/logo/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/logo/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/logo/**"]
           }
         },
         "test": {
@@ -411,10 +379,7 @@
               "libs/toolbar/tsconfig.lib.json",
               "libs/toolbar/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/toolbar/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/toolbar/**"]
           }
         },
         "test": {

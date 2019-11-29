@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '../../libs/ng-pick-datetime/assets/style/picker.min';
 
 html,
 body {
@@ -10,7 +10,7 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
 .display-flex {
@@ -41,16 +41,16 @@ body {
   flex: 6;
 }
 
-[class*="flex-"] {
+[class*='flex-'] {
   padding-left: 10px;
   padding-right: 10px;
 }
 
-[class*="flex-"]:first-child {
+[class*='flex-']:first-child {
   padding-left: 0;
 }
 
-[class*="flex-"]:nth-last-child(2) {
+[class*='flex-']:nth-last-child(2) {
   padding-right: 0;
 }
 
@@ -86,7 +86,7 @@ body {
 }
 
 .display-none {
-  display: none
+  display: none;
 }
 
 .panelSnack {

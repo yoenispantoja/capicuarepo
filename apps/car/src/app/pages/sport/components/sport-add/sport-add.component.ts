@@ -1,4 +1,4 @@
-//import { SportService } from './../../../../services/sport.service';
+
 
 import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -12,6 +12,7 @@ import { SportsStoreService } from 'apps/car/src/app/services/sport-store.servic
 import { Store } from '@ngxs/store';
 import { AddSport } from '../../sport-actions';
 
+
 @Component({
   selector: 'capicuarepo-sport-add',
   templateUrl: './sport-add.component.html',
@@ -20,6 +21,8 @@ import { AddSport } from '../../sport-actions';
 })
 export class SportAddComponent implements OnInit {
   subscriptionGetPhotos: Subscription; // para desuscribirse luego de enganchar el servicio
+
+  min = new Date();
 
   //Ejemplo de propagación mediante Output
   @Output()
@@ -35,6 +38,7 @@ export class SportAddComponent implements OnInit {
       fieldGroup: [
         {
           className: 'flex-2',
+          id: 'txtNombre',
           type: 'input',
           key: 'nombre',
           templateOptions: {
@@ -100,6 +104,8 @@ export class SportAddComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+
   }
 
   submit() {
