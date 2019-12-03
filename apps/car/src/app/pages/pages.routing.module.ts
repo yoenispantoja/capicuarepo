@@ -12,6 +12,8 @@ const routes: Routes = [
       { path: 'sports', loadChildren: () => import(`./sport/sport.module`).then(m => m.SportModule) },
       { path: 'users', loadChildren: () => import(`./user/user.module`).then(m => m.UserModule) },
       { path: 'photos', loadChildren: () => import(`./photo/photo.module`).then(m => m.PhotoModule) },
+      { path: 'customers', loadChildren: () => import(`./customer/customer.module`).then(m => m.CustomerModule) },
+
       {
         path: '', redirectTo: 'dashboard', pathMatch: 'full'
       },
