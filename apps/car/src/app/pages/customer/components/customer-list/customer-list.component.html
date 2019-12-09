@@ -1,11 +1,13 @@
-<h4>List of Customers</h4>
-<ul class="customers">
-  <li *ngFor="let customer of customers; let i = index">
-    <span>{{ i + 1 }}.</span> {{ customer.nombre }} -
-    <span>{{ customer.codigo }}</span>
-    <button style="float: right" (click)="removeCustomer(i)">Remove</button>
-  </li>
-</ul>
+<div [@enterAnimation]>
+  <h4>List of Customers</h4>
+  <ul class="customers">
+    <li *ngFor="let customer of customers; let i = index">
+      <span>{{ i + 1 }}.</span> {{ customer.nombre }} -
+      <span>{{ customer.codigo }}</span>
+      <button style="float: right" (click)="removeCustomer(i)">Remove</button>
+    </li>
+  </ul>
 
-<h1>Add customer</h1>
-<capicuarepo-customer-add></capicuarepo-customer-add>
+  <h1>Add customer</h1>
+  <capicuarepo-customer-add></capicuarepo-customer-add>
+</div>

@@ -20,7 +20,8 @@
       "@capicuarepo/shared": ["libs/shared/src/index.ts"],
       "@capicuarepo/shared/toolbar": ["libs/shared/toolbar/src/index.ts"],
       "@capicuarepo/logo": ["libs/logo/src/index.ts"],
-      "@capicuarepo/toolbar": ["libs/toolbar/src/index.ts"]
+      "@capicuarepo/toolbar": ["libs/toolbar/src/index.ts"],
+      "@capicuarepo/utiles": ["libs/utiles/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

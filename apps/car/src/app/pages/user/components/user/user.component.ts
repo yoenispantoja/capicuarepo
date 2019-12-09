@@ -1,3 +1,4 @@
+import { enterAnimation } from '@capicuarepo/utiles';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -12,7 +13,8 @@ import { MatDialog, MatDialogConfig, MatPaginator, MatSort } from '@angular/mate
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css'],
+  animations: [enterAnimation]
 })
 
 export class UserComponent implements OnInit {

@@ -4,12 +4,13 @@ import { Customer } from 'apps/car/src/app/models/customer';
 
 import { select, Store } from '@ngrx/store';
 import { GetCustomers, CustomerRemove } from '../../store/customer.actions';
-
+import { enterAnimation } from '@capicuarepo/utiles';
 
 @Component({
   selector: 'capicuarepo-customer-list',
   templateUrl: './customer-list.component.html',
-  styleUrls: ['./customer-list.component.scss']
+  styleUrls: ['./customer-list.component.scss'],
+  animations: [enterAnimation]
 })
 export class CustomerListComponent implements OnInit {
 

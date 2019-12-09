@@ -392,6 +392,37 @@
         }
       },
       "schematics": {}
+    },
+    "utiles": {
+      "projectType": "library",
+      "root": "libs/utiles",
+      "sourceRoot": "libs/utiles/src",
+      "prefix": "capicuarepo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/utiles/tsconfig.lib.json",
+              "libs/utiles/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/utiles/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/utiles/jest.config.js",
+            "tsConfig": "libs/utiles/tsconfig.spec.json",
+            "setupFile": "libs/utiles/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

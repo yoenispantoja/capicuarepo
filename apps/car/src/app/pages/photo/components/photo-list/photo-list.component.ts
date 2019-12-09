@@ -7,12 +7,13 @@ import { PhotoService } from './../../../../services/photo.service';
 import { PhotoAddComponent } from '../photo-add/photo-add.component';
 import { MatTableDataSource } from '@angular/material';
 import { MatDialog, MatDialogConfig, MatPaginator, MatSort } from '@angular/material';
-import { first } from 'rxjs/operators';
+import { enterAnimation } from '@capicuarepo/utiles';
 
 @Component({
   selector: 'capicuarepo-photo-list',
   templateUrl: './photo-list.component.html',
-  styleUrls: ['./photo-list.component.css']
+  styleUrls: ['./photo-list.component.css'],
+  animations: [enterAnimation]
 })
 export class PhotoListComponent implements OnInit {
 

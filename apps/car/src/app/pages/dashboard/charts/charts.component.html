@@ -1,1 +1,29 @@
-<p>charts works!</p>
+<div [@enterAnimation]>
+  <h1 class="titlePage">Resumen estadístico del sistema</h1>
+  <div class="graficas" [@enterAnimation]>
+    <div></div>
+    <mat-card>
+      <canvas
+        baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"
+      >
+      </canvas>
+    </mat-card>
+  </div>
+  <div class="btnAcciones">
+    <button mat-button mat-raised-button color="primary" (click)="randomize()">
+      <mat-icon>edit</mat-icon> Actualizar
+    </button>
+    <button mat-button mat-raised-button color="warn" (click)="randomize()">
+      <mat-icon>{{
+        barChartType == 'bar' ? 'pie_chart' : 'bar_chart'
+      }}</mat-icon>
+      Cambiar
+    </button>
+  </div>
+</div>

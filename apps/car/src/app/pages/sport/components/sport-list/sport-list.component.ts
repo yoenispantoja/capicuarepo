@@ -1,3 +1,5 @@
+
+import { enterAnimation } from '@capicuarepo/utiles';
 import { SnackBarDeleteComponent } from './snack-bar-delete/snack-bar-delete.component';
 
 import { SportDetailsComponent } from '../sport-details/sport-details.component';
@@ -9,6 +11,7 @@ import { Sport } from '../../../../models/sport';
 import { MatTableDataSource, MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { MatDialog, MatDialogConfig, MatPaginator, MatSort } from '@angular/material';
 import { SportAddComponent } from '../sport-add/sport-add.component';
+
 
 //Cambiando para el store
 import { Store, Select } from '@ngxs/store';
@@ -22,7 +25,8 @@ import { SportEditComponent } from '../sport-edit/sport-edit.component';
   selector: 'capicuarepo-sport-list',
   templateUrl: './sport-list.component.html',
   styleUrls: ['./sport-list.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [enterAnimation]
 })
 export class SportListComponent implements OnInit {
 
