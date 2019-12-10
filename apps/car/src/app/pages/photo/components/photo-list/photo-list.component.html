@@ -27,7 +27,14 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <strong>Id. </strong>
         </th>
-        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        <td
+          mat-cell
+          *matCellDef="let element; let i = index"
+          [ngClass]="stripper(i)"
+          class="tdId"
+        >
+          {{ element.id }}
+        </td>
       </ng-container>
 
       <!-- Name Column -->
@@ -35,7 +42,12 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <strong>Album Number</strong>
         </th>
-        <td mat-cell *matCellDef="let element">
+        <td
+          mat-cell
+          *matCellDef="let element; let i = index"
+          [ngClass]="stripper(i)"
+          class="tdAlbumId"
+        >
           <mat-icon matBadge="{{ element.albumId }}" matBadgeColor="warn"
             >folder</mat-icon
           >
@@ -47,7 +59,14 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <strong>Title</strong>
         </th>
-        <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+        <td
+          mat-cell
+          *matCellDef="let element; let i = index"
+          [ngClass]="stripper(i)"
+          class="tdTitle"
+        >
+          {{ element.title }}
+        </td>
       </ng-container>
 
       <!-- Symbol Column -->
@@ -55,7 +74,14 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <strong>Url</strong>
         </th>
-        <td mat-cell *matCellDef="let element">{{ element.url }}</td>
+        <td
+          mat-cell
+          *matCellDef="let element; let i = index"
+          [ngClass]="stripper(i)"
+          class="tdUrl"
+        >
+          <a href="{{ element.url }}">{{ element.url }}</a>
+        </td>
       </ng-container>
 
       <!-- Symbol Column -->
@@ -64,28 +90,40 @@
           <strong>Avatar</strong>
         </th>
         <td
-          width="80px"
-          style="text-align: center"
           mat-cell
-          *matCellDef="let element"
+          *matCellDef="let element; let i = index"
+          [ngClass]="stripper(i)"
+          class="tdThumbnailUrl"
         >
-          <img src="{{ element.thumbnailUrl }}" width="50%" alt="" />
+          <img src="{{ element.thumbnailUrl }}" alt="" />
         </td>
       </ng-container>
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef></th>
         <td
           mat-cell
-          style="text-align: center; padding-left: 20px"
-          *matCellDef="let element"
+          class="tdActions"
+          *matCellDef="let element; let i = index"
+          [ngClass]="stripper(i)"
         >
-          <button
-            mat-raised-button
-            [color]="'primary'"
+          <mat-icon
+            class="mat-18 blueIcon button"
             (click)="this.seeMore(element)"
+            matTooltip="See details"
+            >remove_red_eye</mat-icon
           >
-            See more
-          </button>
+          <mat-icon
+            class="mat-18 orangeIcon button"
+            (click)="this.seeMore(element)"
+            matTooltip="Edit element"
+            >edit</mat-icon
+          >
+          <mat-icon
+            class="mat-18 redIcon button"
+            (click)="this.deletePhoto(element.id)"
+            matTooltip="Delete element"
+            >delete</mat-icon
+          >
         </td>
       </ng-container>
 

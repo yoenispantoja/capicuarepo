@@ -1,0 +1,17 @@
+<div class="container">
+  <span>
+    <mat-icon>{{ setIcon() }}</mat-icon>
+  </span>
+  <h4 class="example-pizza-party">
+    This {{ model }} will erase and not can it restored. Are you sure?
+  </h4>
+</div>
+<br />
+<div class="footerSnack">
+  <button mat-raised-button color="primary" (click)="acceptDelete()">
+    Yes, delete
+  </button>
+  <button mat-raised-button color="accent" (click)="snackBarRef.dismiss()">
+    Cancel
+  </button>
+</div>

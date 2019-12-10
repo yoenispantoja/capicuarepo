@@ -5,14 +5,15 @@ import { Subscription, of, pipe } from 'rxjs';
 import { Photo } from '../../../../models/photo';
 import { PhotoService } from './../../../../services/photo.service';
 import { PhotoAddComponent } from '../photo-add/photo-add.component';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatSnackBarConfig, MatSnackBar } from '@angular/material';
 import { MatDialog, MatDialogConfig, MatPaginator, MatSort } from '@angular/material';
 import { enterAnimation } from '@capicuarepo/utiles';
+import { SnackBarDeleteComponent } from 'apps/car/src/app/shared/snack-bar-delete/snack-bar-delete.component';
 
 @Component({
   selector: 'capicuarepo-photo-list',
   templateUrl: './photo-list.component.html',
-  styleUrls: ['./photo-list.component.css'],
+  styleUrls: ['./photo-list.component.scss'],
   animations: [enterAnimation]
 })
 export class PhotoListComponent implements OnInit {
@@ -36,6 +37,7 @@ export class PhotoListComponent implements OnInit {
   constructor(
     private photoService: PhotoService,
     private dialog: MatDialog,
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit() {
@@ -43,7 +45,7 @@ export class PhotoListComponent implements OnInit {
   }
 
   prepareTable() {
-    this.dataSource.data = this.photos.slice(0, 25);
+    this.dataSource.data = this.photos;
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
@@ -53,7 +55,7 @@ export class PhotoListComponent implements OnInit {
   }
 
   getPhotos() {
-    const source = this.photoService.getPhotos();
+    const source = this.photoService.getAllPhotos();
     this.subscriptionGetPhoto = source.subscribe(data => {
       this.photos = data;
       this.prepareTable();
@@ -85,5 +87,24 @@ export class PhotoListComponent implements OnInit {
 
   seeMore(row: any) {
     console.table(row);
+  }
+
+  deletePhoto(id: number) {
+    let config: MatSnackBarConfig = {
+      verticalPosition: 'top',
+      panelClass: 'panelSnack'
+    }
+    this.snackBar.openFromComponent(SnackBarDeleteComponent, {
+      data: {
+        id: id,
+        model: 'photo'
+      },
+      ...config
+    });
+
+  }
+
+  stripper(index: number): string {
+    return (index % 2 === 0) ? 'stripper' : 'none';
   }
 }

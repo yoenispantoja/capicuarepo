@@ -1,0 +1,62 @@
+table {
+  width: 100%;
+}
+
+.tdId {
+  text-align: center;
+  width: 100px;
+}
+
+.tdTitle {
+  max-width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+}
+
+.tdAlbumId {
+  text-align: center;
+  width: 150px;
+}
+
+.tdUrl {
+  max-width: 600px;
+}
+
+.tdThumbnailUrl {
+  text-align: center;
+
+  img {
+    width: 50px;
+    border: 1px solid rgb(80, 78, 80);
+    border-radius: 8px;
+    margin-top: 4px;
+  }
+}
+
+.tdActions {
+  text-align: center;
+
+  padding-left: 20px;
+
+  mat-icon {
+    margin: 0 5px;
+  }
+
+  mat-icon:hover {
+    cursor: pointer;
+    transform: rotate(15deg);
+    text-shadow: 10px 10px 5px #aaaaaa;
+  }
+}
+
+.stripper {
+  background-color: rgb(231, 230, 228);
+}
+
+th {
+  background-color: rgb(160, 158, 158);
+  color: rgb(20, 20, 20);
+  font-size: 16px;
+}

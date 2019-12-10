@@ -1,6 +1,6 @@
 
 import { enterAnimation } from '@capicuarepo/utiles';
-import { SnackBarDeleteComponent } from './snack-bar-delete/snack-bar-delete.component';
+import { SnackBarDeleteComponent } from '../../../../shared/snack-bar-delete/snack-bar-delete.component';
 
 import { SportDetailsComponent } from '../sport-details/sport-details.component';
 import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
@@ -117,7 +117,10 @@ export class SportListComponent implements OnInit {
       panelClass: 'panelSnack'
     }
     this.snackBar.openFromComponent(SnackBarDeleteComponent, {
-      data: id,
+      data: {
+        id: id,
+        model: 'sport'
+      },
       ...config
     });
 

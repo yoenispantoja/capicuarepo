@@ -1,0 +1,17 @@
+.container {
+  text-align: center;
+
+  mat-icon {
+    font-size: 60px;
+  }
+}
+
+.footerSnack {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.footerSnack * {
+  margin: 10px;
+}

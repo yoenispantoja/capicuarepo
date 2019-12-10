@@ -10,7 +10,6 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
 import { MaterialModule } from '@capicuarepo/material';
 import { SportService } from '../../services/sport.service';
 import { FormlyModule } from '@ngx-formly/core';
-import { SnackBarDeleteComponent } from './components/sport-list/snack-bar-delete/snack-bar-delete.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from '../../../../../../libs/ng-pick-datetime';
 
 @NgModule({
@@ -30,8 +29,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from '../../../../../../li
     OwlNativeDateTimeModule
 
   ],
-  declarations: [SportListComponent, SportDetailsComponent, SportAddComponent, SportEditComponent, SnackBarDeleteComponent],
+  declarations: [SportListComponent, SportDetailsComponent, SportAddComponent, SportEditComponent],
   providers: [SportService],
-  entryComponents: [SportAddComponent, SportEditComponent, SnackBarDeleteComponent]
+  entryComponents: [SportAddComponent, SportEditComponent]
 })
 export class SportModule { }
