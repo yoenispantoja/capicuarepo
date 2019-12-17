@@ -7,14 +7,14 @@ import { PhotoService } from './../../../../services/photo.service';
 import { PhotoAddComponent } from '../photo-add/photo-add.component';
 import { MatTableDataSource, MatSnackBarConfig, MatSnackBar } from '@angular/material';
 import { MatDialog, MatDialogConfig, MatPaginator, MatSort } from '@angular/material';
-import { enterAnimation } from '@capicuarepo/utiles';
+import { enterAnimation, enterLeaveAnimation } from '@capicuarepo/utiles';
 import { SnackBarDeleteComponent } from 'apps/car/src/app/shared/snack-bar-delete/snack-bar-delete.component';
 
 @Component({
   selector: 'capicuarepo-photo-list',
   templateUrl: './photo-list.component.html',
   styleUrls: ['./photo-list.component.scss'],
-  animations: [enterAnimation]
+  animations: [enterAnimation, enterLeaveAnimation]
 })
 export class PhotoListComponent implements OnInit {
 
@@ -33,6 +33,7 @@ export class PhotoListComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
+  fieldExposed: boolean;
 
   constructor(
     private photoService: PhotoService,
@@ -42,6 +43,7 @@ export class PhotoListComponent implements OnInit {
 
   ngOnInit() {
     this.getPhotos();
+    this.fieldExposed = true;
   }
 
   prepareTable() {
@@ -100,6 +102,8 @@ export class PhotoListComponent implements OnInit {
         model: 'photo'
       },
       ...config
+    }).afterDismissed().subscribe(() => {
+      this.fieldExposed = false;
     });
 
   }

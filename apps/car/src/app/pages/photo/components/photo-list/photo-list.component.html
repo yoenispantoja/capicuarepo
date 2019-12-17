@@ -6,7 +6,7 @@
       <mat-icon>add_circle</mat-icon> Add
     </button>
     <br />
-    <mat-form-field>
+    <mat-form-field *ngIf="fieldExposed" [@enterLeave]>
       <input
         matInput
         (keyup)="applyFilter($event.target.value)"

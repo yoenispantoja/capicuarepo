@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { SocialService } from 'ngx-social-button';
 import { stringify } from '@angular/compiler/src/util';
@@ -12,7 +12,10 @@ export class ToolbarComponent implements OnInit {
   usuario: any = "Yoenis";
   avatarSrc: string;
 
-  constructor(private socialAuthService: SocialService, private route: Router) { }
+  constructor(
+    private socialAuthService: SocialService,
+    private route: Router,
+    private routeActive: ActivatedRoute) { }
 
   ngOnInit() {
     //Chequeando la información de usuario logueado

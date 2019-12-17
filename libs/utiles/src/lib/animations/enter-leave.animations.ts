@@ -8,6 +8,6 @@ export const enterLeaveAnimation = trigger('enterLeave', [
     animate('0.4s ease-in')
   ]),
   transition(':leave', [
-    animate('0.3s ease-out', style({ transform: 'translateY(100%)' }))
+    animate('0.5s ease-out', style({ transform: 'translateY(100%)' }))
   ])
 ]);

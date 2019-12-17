@@ -5,7 +5,9 @@ import { SportListComponent } from './components/sport-list/sport-list.component
 
 const routes: Routes = [
   {
-    path: '', component: SportListComponent, children: [
+    path: '', component: SportListComponent,
+    data: { pageTitle: 'sports list' },
+    children: [
       { path: 'sport-detail/:id', component: SportDetailsComponent }
     ]
   }

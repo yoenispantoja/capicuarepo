@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartType, ChartOptions } from 'chart.js';
 //import * as pluginDataLabels from 'charjts-';
 import { Label } from 'ng2-charts';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'capicuarepo-charts',
@@ -34,9 +35,16 @@ export class ChartsComponent implements OnInit {
     { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
   ];
 
-  constructor() { }
+  constructor(private routeActive: ActivatedRoute) { }
 
   ngOnInit() {
+    this.routeActive.data.subscribe(data => {
+      //this.pageTitle = data.pageTitle;
+      console.log(data);
+    })
+
+    console.log(this.routeActive.snapshot.data['pageTitle']);
+    //this.pageTitle = this.routeActive.snapshot.data['pageTitle'];
   }
 
   // events

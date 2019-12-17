@@ -37,3 +37,8 @@ mat-sidenav-content {
   padding-right: 5%;
 
 }
+
+.cintilloSuperior {
+  display: flex;
+  justify-content: flex-end;
+}
