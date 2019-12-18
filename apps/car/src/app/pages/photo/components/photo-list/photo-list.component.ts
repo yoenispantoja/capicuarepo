@@ -35,6 +35,8 @@ export class PhotoListComponent implements OnInit {
 
   fieldExposed: boolean;
 
+  total: number;
+
   constructor(
     private photoService: PhotoService,
     private dialog: MatDialog,
@@ -61,6 +63,7 @@ export class PhotoListComponent implements OnInit {
     this.subscriptionGetPhoto = source.subscribe(data => {
       this.photos = data;
       this.prepareTable();
+      this.total = data.length;
     },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {

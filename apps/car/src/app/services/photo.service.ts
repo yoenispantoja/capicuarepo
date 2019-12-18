@@ -20,7 +20,7 @@ export class PhotoService {
   baseUrl = 'http://localhost:8000/api/photos';
 
   private _photos = new BehaviorSubject<Photo[]>([]);
-  private photos$ = this._photos.asObservable();
+  public photos$ = this._photos.asObservable();
 
   constructor(private http: HttpClient) { }
 

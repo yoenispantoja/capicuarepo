@@ -1,33 +1,45 @@
+import { HttpClient } from '@angular/common/http';
 import { UserService } from './user.service';
 import { SportService } from './sport.service';
 import { Injectable } from '@angular/core';
-import { Observable, of, forkJoin, concat } from 'rxjs';
+import { BehaviorSubject, Observable, forkJoin, Subject } from 'rxjs';
 import { PhotoService } from './photo.service';
-import { map } from 'rxjs/operators';
+import { Photo } from '../models/photo';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
+  private photos: Array<Photo>;
+  observablePhotos: BehaviorSubject<Photo[]>;
+
+  baseUrl = 'http://localhost:8000/api/photos';
 
 
   constructor(
     private photoService: PhotoService,
     private sportService: SportService,
-    private userService: UserService
+    private userService: UserService,
+    private http: HttpClient
   ) {
+    this.photos = new Array<Photo>();
+    this.observablePhotos = new BehaviorSubject<Photo[]>(this.photos);
+    this.observablePhotos.next(this.photos);
+
 
   }
 
-  getAllData(): void {
+  eventChange() {
+    this.observablePhotos.next(this.photos);
+  }
 
-    const photos = this.photoService.getAllPhotos().subscribe();
-    const sports = this.sportService.getSports().subscribe();
-    const users = this.userService.getUsers().toPromise();
-
-    console.log(users);
-
+  getPhotos() {
+    this.http.get<Photo[]>(this.baseUrl).subscribe(data => {
+      this.photos = data;
+      this.eventChange();
+    });
   }
 
 }
