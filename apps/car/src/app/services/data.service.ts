@@ -28,7 +28,6 @@ export class DataService {
     this.observablePhotos = new BehaviorSubject<Photo[]>(this.photos);
     this.observablePhotos.next(this.photos);
 
-
   }
 
   eventChange() {

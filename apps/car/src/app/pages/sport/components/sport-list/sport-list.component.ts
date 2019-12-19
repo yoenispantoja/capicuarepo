@@ -1,4 +1,3 @@
-
 import { enterAnimation } from '@capicuarepo/utiles';
 import { SnackBarDeleteComponent } from '../../../../shared/snack-bar-delete/snack-bar-delete.component';
 
@@ -15,7 +14,7 @@ import { SportAddComponent } from '../sport-add/sport-add.component';
 
 //Cambiando para el store
 import { Store, Select } from '@ngxs/store';
-import { SportState } from 'apps/car/src/app/states/sport-state';
+import { AppState } from 'apps/car/src/app/states/app-state';
 import { DeleteSport, GetSports, UpdateSport } from '../../sport-actions';
 import { SportEditComponent } from '../sport-edit/sport-edit.component';
 
@@ -30,7 +29,7 @@ import { SportEditComponent } from '../sport-edit/sport-edit.component';
 })
 export class SportListComponent implements OnInit {
 
-  @Select(SportState.getSportList) sports$: Observable<Sport[]>;
+  @Select(AppState.getSportList) sports$: Observable<Sport[]>;
 
   subscriptionGetSport: Subscription;
   sports: Sport[];
@@ -136,10 +135,7 @@ export class SportListComponent implements OnInit {
     this.dialogDetails.open(SportEditComponent, dialogConfig);
   }
 
-  ngOnDestroy(): void {
-    //this.sports = [];
-    //this.subscriptionGetSport.unsubscribe();
-  }
+
 
 
 

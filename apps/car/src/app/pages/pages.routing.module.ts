@@ -28,11 +28,6 @@ const routes: Routes = [
         data: { pageTitle: 'Photos list' },
         loadChildren: () => import(`./photo/photo.module`).then(m => m.PhotoModule)
       },
-      {
-        path: 'customers',
-        data: { pageTitle: 'Costumers list' },
-        loadChildren: () => import(`./customer/customer.module`).then(m => m.CustomerModule)
-      },
 
       {
         path: '', redirectTo: 'dashboard', pathMatch: 'full'

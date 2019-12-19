@@ -1,7 +1,6 @@
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Subscription, of, pipe } from 'rxjs';
+import { Subscription, of, pipe, Observable } from 'rxjs';
 import { Photo } from '../../../../models/photo';
 import { PhotoService } from './../../../../services/photo.service';
 import { PhotoAddComponent } from '../photo-add/photo-add.component';
@@ -9,6 +8,11 @@ import { MatTableDataSource, MatSnackBarConfig, MatSnackBar } from '@angular/mat
 import { MatDialog, MatDialogConfig, MatPaginator, MatSort } from '@angular/material';
 import { enterAnimation, enterLeaveAnimation } from '@capicuarepo/utiles';
 import { SnackBarDeleteComponent } from 'apps/car/src/app/shared/snack-bar-delete/snack-bar-delete.component';
+
+//Cambiando para el store
+import { Store, Select } from '@ngxs/store';
+import { AppState } from 'apps/car/src/app/states/app-state';
+import { DeletePhoto, GetPhotos, UpdatePhoto } from '../../photo-actions';
 
 @Component({
   selector: 'capicuarepo-photo-list',
@@ -18,6 +22,7 @@ import { SnackBarDeleteComponent } from 'apps/car/src/app/shared/snack-bar-delet
 })
 export class PhotoListComponent implements OnInit {
 
+  @Select(AppState.getPhotosList) photos$: Observable<Photo[]>;
 
   photos: Photo[];
   subscriptionGetPhoto: Subscription; // para desuscribirse luego de enganchar el servicio
@@ -41,39 +46,27 @@ export class PhotoListComponent implements OnInit {
     private photoService: PhotoService,
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
+    private store: Store
   ) { }
 
   ngOnInit() {
-    this.getPhotos();
+    this.prepareTable();
     this.fieldExposed = true;
   }
 
   prepareTable() {
-    this.dataSource.data = this.photos;
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.store.dispatch(new GetPhotos()); //Lanzo la acción y se actualiza el store
+    this.photos$.subscribe(data => {
+      this.dataSource.data = data;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  getPhotos() {
-    const source = this.photoService.getAllPhotos();
-    this.subscriptionGetPhoto = source.subscribe(data => {
-      this.photos = data;
-      this.prepareTable();
-      this.total = data.length;
-    },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log('Ha ocurrido un error ', err.error.message);
-        } else {
-          console.log(`El servidor ha devuelto un codigo ${err.status}, con el argumento: ${err.error}`);
-        }
-      }
-    );
-  }
 
   addPhoto() {
     const dialogConfig = new MatDialogConfig();
@@ -85,10 +78,6 @@ export class PhotoListComponent implements OnInit {
     this.dialog.open(PhotoAddComponent, dialogConfig);
   }
 
-  ngOnDestroy(): void {
-    this.photos = [];
-    this.subscriptionGetPhoto.unsubscribe();
-  }
 
   seeMore(row: any) {
     console.table(row);

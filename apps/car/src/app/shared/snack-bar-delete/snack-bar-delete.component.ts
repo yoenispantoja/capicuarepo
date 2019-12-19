@@ -1,3 +1,4 @@
+import { DeletePhoto } from './../../pages/photo/photo-actions';
 
 import { Component, OnInit, Inject } from '@angular/core';
 import { SportListComponent } from '../../pages/sport/components/sport-list/sport-list.component';
@@ -34,7 +35,7 @@ export class SnackBarDeleteComponent implements OnInit {
       }
         break;
       case 'photo': {
-        this.servicePhoto.deletePhoto(this.data.id).subscribe();
+        this.storeSports.dispatch(new DeletePhoto(this.data.id));
       }
         break;
     }

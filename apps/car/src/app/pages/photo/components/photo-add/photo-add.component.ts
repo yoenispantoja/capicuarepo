@@ -1,3 +1,4 @@
+import { AddPhoto } from './../../photo-actions';
 
 import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { MAT_DIALOG_DATA, MatSnackBar, MatDialogRef } from '@angular/material';
@@ -6,6 +7,7 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 import { PhotoService } from '../../../../services/photo.service';
 import { Subscription } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'capicuarepo-photo-add',
@@ -71,6 +73,7 @@ export class PhotoAddComponent implements OnInit {
     private photoService: PhotoService,
     private snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<PhotoAddComponent>,
+    private store: Store
   ) { }
 
 
@@ -87,32 +90,14 @@ export class PhotoAddComponent implements OnInit {
 
   submit() {
     let modelo = this.model;
-    /*let photo: Photo;
-
-    photo.id = 5;
-    photo.albumId = modelo['albumId'];
-    photo.title = modelo['title'];
-    photo.url = modelo['url']
-    photo.thumbnailUrl = modelo['thumbnailUrl'];*/
     const rndNum = Date.now();
-    modelo['thumbnailUrl'] = `https://api.adorable.io/avatars/285/${rndNum}`,
-
-      this.photoService.addPhoto(modelo).subscribe(data => {
-        //Cargando el snack para el mensajito
-        this.snackBar.open('Photo is added succesfully', '', {
-          duration: 3000
-        })
-        this.dialogRef.close();
-      },
-        (err: HttpErrorResponse) => {
-          if (err.error instanceof Error) {
-            console.log('Ha ocurrido un error ', err.error.message);
-          }
-          else {
-            console.log(`El servidor ha devuelto un codigo ${err.status}, con el argumento: ${err.error}`);
-          }
-        }
-      );
+    modelo['thumbnailUrl'] = `https://api.adorable.io/avatars/285/${rndNum}`;
+    this.store.dispatch(new AddPhoto(modelo));
+    //Cargando el snack para el mensajito
+    this.snackBar.open('Photo is added succesfully', '', {
+      duration: 3000
+    })
+    this.dialogRef.close();
 
   }
 

@@ -1,4 +1,3 @@
-import { CustomerEffects } from './pages/customer/store/customer.effects';
 import { LoginComponent } from './login/login.component';
 import { NotPageFoundComponent } from './not-page-found/not-page-found.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,11 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Trabajando con NGSXS
 import { NgxsModule } from '@ngxs/store';
-import { SportState } from './states/sport-state';
-
-
-import { StoreModule } from '@ngrx/store';
-import { CustomerReducer } from './pages/customer/store/customer.reducer';
+import { AppState } from './states/app-state';
 
 
 import {
@@ -48,12 +43,8 @@ export function getAuthServiceConfigs() {
     BrowserAnimationsModule,
     NgxsModule.forRoot([
       //Aquí declaro los stados globales que tendrá mi app
-      SportState
+      AppState
     ]),
-
-    StoreModule.forRoot({ customers: CustomerReducer }),
-    EffectsModule.forRoot([CustomerEffects]),
-
     NgxSocialButtonModule,
   ],
   providers: [{
